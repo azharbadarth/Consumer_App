@@ -3,6 +3,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:consumerpro/properties/Colors.dart';
+import 'package:consumerpro/properties/Customwidget.dart';
+import 'package:consumerpro/views/Customer_detail.dart';
+import 'package:consumerpro/views/Shipmintview.dart';
+import 'package:consumerpro/views/Supportview.dart';
+import 'package:consumerpro/views/Googlemap.dart';
+import 'package:consumerpro/views/profile.dart';
+import 'package:consumerpro/views/Home.dart';
 
 class googleview extends StatefulWidget {
   const googleview({super.key});
@@ -50,6 +58,10 @@ class _googleviewState extends State<googleview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: customappbar(context),
+      // drawer
+      drawer: CustomDrawer(context),
       body: SafeArea(
         child: GoogleMap(
           initialCameraPosition: _kGoogLePlex,
@@ -61,18 +73,57 @@ class _googleviewState extends State<googleview> {
           },
         ),
       ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.location_disabled_outlined),
-        onPressed: () async {
-          GoogleMapController controller = await _controller.future;
-          controller.animateCamera(
-              CameraUpdate.newCameraPosition(const CameraPosition(
-            target: LatLng(24.9345872, 67.099281),
-            zoom: 14,
-          )));
-          setState(() {});
+        backgroundColor: (Colors.blue.shade900),
+        onPressed: () {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const homeview(),
+              ));
         },
+        child: Image.asset("assets/home_icon.png"),
+        elevation: 2.0,
       ),
+      bottomNavigationBar: customBottomAppBar(
+          onTap1: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => customer_detailview(),
+                ));
+          },
+          onTap2: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => shipment_view(),
+                ));
+          },
+          onTap3: () async {
+            GoogleMapController controller = await _controller.future;
+            controller.animateCamera(
+                CameraUpdate.newCameraPosition(const CameraPosition(
+              target: LatLng(24.9345872, 67.099281),
+              zoom: 14,
+            )));
+            setState(() {});
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => googleview(),
+                ));
+          },
+          onTap4: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => supportview(),
+                ));
+          },
+          condition1: 'map'),
     );
   }
 }

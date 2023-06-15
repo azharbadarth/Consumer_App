@@ -1,5 +1,3 @@
-//checkview
-
 import 'package:flutter/material.dart';
 import 'package:consumerpro/properties/Colors.dart';
 import 'package:consumerpro/properties/Customwidget.dart';
@@ -7,16 +5,17 @@ import 'package:consumerpro/views/Home.dart';
 import 'package:consumerpro/views/Shipmintview.dart';
 import 'package:consumerpro/views/Supportview.dart';
 import 'package:consumerpro/views/Googlemap.dart';
+import 'package:consumerpro/views/scanner.dart';
 import 'package:consumerpro/views/Customer_detail.dart';
 
-class checkview extends StatefulWidget {
-  const checkview({super.key});
+class customercheck extends StatefulWidget {
+  const customercheck({super.key});
 
   @override
-  State<checkview> createState() => _customer_detailviewState();
+  State<customercheck> createState() => _customer_detailviewState();
 }
 
-class _customer_detailviewState extends State<checkview> {
+class _customer_detailviewState extends State<customercheck> {
   bool? ischecked1 = false;
   bool? ischecked2 = false;
   bool? ischecked3 = false;
@@ -26,9 +25,10 @@ class _customer_detailviewState extends State<checkview> {
   Widget build(BuildContext context) {
     var _mediaQuery = MediaQuery.of(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: customappbar(context),
-      drawer: const Drawer(),
-      body: Column(
+      drawer: CustomDrawer(context),
+      body: Stack(
         children: [
           Container(
             height: 600,
@@ -45,8 +45,8 @@ class _customer_detailviewState extends State<checkview> {
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(top: 30, left: 20),
-                    child: customarrow(
-                        txt: "Create Replacement Shipment // check"),
+                    child:
+                        customarrow(txt: "Create Replacement Shipment check2"),
                   ),
                 ),
                 const SizedBox(
@@ -549,124 +549,35 @@ class _customer_detailviewState extends State<checkview> {
                           txt: "Book Now",
                           bgcolor: ColorSelect().splashcolor,
                           onPressed: () {
-                            // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => return_request_views(),));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => QRViewExample(),
+                                ));
                           }),
                     )),
               ],
             ),
           ),
-
-          // Container(
-          //   height: 109,
-          //   decoration: const BoxDecoration(
-          //     borderRadius: BorderRadius.only(
-          //       topRight: Radius.circular(20),
-          //       topLeft: Radius.circular(20),
-          //     ),
-          //     color: Color(0xffFFFFFF),
-          //   ),
-          //   child: Column(
-          //     children: [
-          //       const SizedBox(
-          //         height: 16,
-          //       ),
-          //       const Padding(
-          //         padding: EdgeInsets.symmetric(horizontal: 20),
-          //         child: Row(
-          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //           children: [
-          //             Text(
-          //               "Shipment Options",
-          //               style: TextStyle(fontSize: 18),
-          //             ),
-          //             Icon(Icons.keyboard_arrow_down, color: Color(0xff989B9F)),
-          //           ],
-          //         ),
-          //       ),
-
-          //       const SizedBox(
-          //         height: 12,
-          //       ),
-          //       // checks widget
-          //       Padding(
-          //         padding: const EdgeInsets.only(left: 10),
-          //         child: Row(
-          //           children: [
-          //             Checkbox(
-          //                 value: ischecked1,
-          //                 onChanged: (newBool) {
-          //                   setState(() {
-          //                     ischecked1 = newBool;
-          //                   });
-          //                 }),
-          //             const SizedBox(
-          //               width: 1,
-          //             ),
-          //             const Text(
-          //               "Percel",
-          //               style:
-          //                   TextStyle(color: Color(0xff989B9F), fontSize: 13),
-          //             ),
-          //             const SizedBox(
-          //               width: 1,
-          //             ),
-          //             Checkbox(
-          //                 value: ischecked2,
-          //                 onChanged: (newBool) {
-          //                   setState(() {
-          //                     ischecked2 = newBool;
-          //                   });
-          //                 }),
-          //             const SizedBox(
-          //               width: 1,
-          //             ),
-          //             const Text(
-          //               "Fragile",
-          //               style:
-          //                   TextStyle(color: Color(0xff989B9F), fontSize: 13),
-          //             ),
-          //             const SizedBox(
-          //               width: 1,
-          //             ),
-          //             Checkbox(
-          //                 value: ischecked3,
-          //                 onChanged: (newBool) {
-          //                   setState(() {
-          //                     ischecked3 = newBool;
-          //                   });
-          //                 }),
-          //             const SizedBox(
-          //               width: 1,
-          //             ),
-          //             const Text(
-          //               "Insurance",
-          //               style:
-          //                   TextStyle(color: Color(0xff989B9F), fontSize: 13),
-          //             ),
-          //             const SizedBox(
-          //               width: 1,
-          //             ),
-          //             Checkbox(
-          //                 value: ischecked4,
-          //                 onChanged: (newBool) {
-          //                   setState(() {
-          //                     ischecked4 = newBool;
-          //                   });
-          //                 }),
-          //             const SizedBox(
-          //               width: 1,
-          //             ),
-          //             const Text(
-          //               "COD",
-          //               style:
-          //                   TextStyle(color: Color(0xff989B9F), fontSize: 13),
-          //             ),
-          //           ],
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
+          DraggableScrollableSheet(
+            initialChildSize: 0.2, // Initial height of the sheet (0.0 - 1.0)
+            minChildSize: 0.1, // Minimum height of the sheet when collapsed
+            maxChildSize: 1.0, // Maximum height of the sheet when expanded
+            builder: (context, controller) {
+              return Container(
+                color: Colors.grey[200],
+                child: ListView.builder(
+                  controller: controller,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [Text("this isnss isns si")],
+                    );
+                  },
+                ),
+              );
+            },
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -682,31 +593,36 @@ class _customer_detailviewState extends State<checkview> {
         child: Image.asset("assets/home_icon.png"),
         elevation: 2.0,
       ),
-      bottomNavigationBar: customBottomAppBar(onTap1: () {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => customer_detailview(),
-            ));
-      }, onTap2: () {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => shipment_view(),
-            ));
-      }, onTap3: () {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => googleview(),
-            ));
-      }, onTap4: () {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => supportview(),
-            ));
-      }),
+      bottomNavigationBar: customBottomAppBar(
+          onTap1: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => customer_detailview(),
+                ));
+          },
+          onTap2: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => shipment_view(),
+                ));
+          },
+          onTap3: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => googleview(),
+                ));
+          },
+          onTap4: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => supportview(),
+                ));
+          },
+          condition1: 'create'),
     );
   }
 }

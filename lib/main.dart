@@ -15,6 +15,7 @@ import 'package:consumerpro/views/scanner.dart';
 import 'package:consumerpro/views/share.dart';
 import 'package:consumerpro/views/try.dart';
 import 'package:consumerpro/views/dragcheck.dart';
+import 'package:consumerpro/views/drag.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: tryview(),
+      home: customercheck(),
     );
   }
 }

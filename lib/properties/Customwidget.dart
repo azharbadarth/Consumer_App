@@ -223,7 +223,7 @@ Widget customBottomAppBar({onTap1, onTap2, onTap3, onTap4, condition1}) {
                   child: SvgPicture.asset(
                     "assets/map_icon.svg",
                     color: (condition1 == 'map'
-                        ? Colors.red
+                        ? Colors.blue.shade900
                         : Colors.grey.shade700),
                   ),
                 ),
@@ -619,7 +619,7 @@ CustomDrawer(context) {
               width: MediaQuery.of(context).size.width * 0.040,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 120),
+              padding: const EdgeInsets.only(top: 140),
               child: Text(
                 "Log Out",
                 style: TextStyle(color: ColorSelect().text2, fontSize: 18),

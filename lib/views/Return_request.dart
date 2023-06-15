@@ -37,8 +37,9 @@ class _return_request_viewsState extends State<return_request_views> {
     final differnce = dateRange.duration;
     var _mediaQuery = MediaQuery.of(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: customappbar(context),
-      drawer: const Drawer(),
+      drawer: CustomDrawer(context),
       body: ListView(
         children: [
           InkWell(
@@ -46,7 +47,7 @@ class _return_request_viewsState extends State<return_request_views> {
               Navigator.pop(context);
             },
             child: Padding(
-              padding: EdgeInsets.only(top: 30, left: 20),
+              padding: const EdgeInsets.only(top: 30, left: 20),
               child: customarrow(txt: "Deliveries"),
             ),
           ),

@@ -550,7 +550,7 @@ class _customer_detailviewState extends State<customer_detailview> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => scannerview(),
+                                  builder: (context) => QRViewExample(),
                                 ));
                           }),
                     )),

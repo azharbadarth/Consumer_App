@@ -135,138 +135,136 @@ class _homeviewState extends State<homeview> {
                   ),
                   //
                   // check condition
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 20, left: 20, right: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                "Dashboard",
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              PopupMenuButton(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    color: ColorSelect().splashcolor,
-                                  ),
-                                  child: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: ColorSelect().whitecolor,
-                                  ),
-                                ),
-                                itemBuilder: (BuildContext bc) {
-                                  return [
-                                    const PopupMenuItem(
-                                        child: Text(
-                                      "Today",
-                                      style: TextStyle(fontSize: 16),
-                                    )),
-                                    const PopupMenuItem(
-                                        child: Text(
-                                      "Yesterday",
-                                      style: TextStyle(fontSize: 16),
-                                    )),
-                                    const PopupMenuItem(
-                                        child: Text("Last 7 Days")),
-                                    const PopupMenuItem(
-                                        child: Text("Last 30 Days")),
-                                    const PopupMenuItem(
-                                        child: Text("This Month")),
-                                    const PopupMenuItem(
-                                        child: Text("Last Month")),
-                                    const PopupMenuItem(
-                                        child: Text("Custom Range")),
-                                  ];
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        // circular char
-
-                        Container(
-                          height: _mediaQuery.size.height * 0.40,
-                          child: SfCircularChart(
-
-                              //  title: ChartTitle(text: 'Sales by sales person'),
-                              //  legend: Legend(isVisible: true),
-                              series: <DoughnutSeries<_PieData, String>>[
-                                DoughnutSeries<_PieData, String>(
-                                    explode: true,
-                                    explodeIndex: 0,
-                                    dataSource: chartData,
-                                    xValueMapper: (_PieData data, _) => data.x,
-                                    yValueMapper: (_PieData data, _) => data.y,
-                                    innerRadius: '68%',
-                                    pointColorMapper: (_PieData data, _) =>
-                                        data.color,
-                                    //  dataLabelMapper: (_PieData data, _) => data.color,
-                                    dataLabelSettings: const DataLabelSettings(
-                                        isVisible: true)),
-                              ]),
-                        ),
-                        Column(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 20, left: 20, right: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            // SizedBox(height: 80),
-                            const CustomRow(
-                                num1: "31",
-                                txt1: "Accepted Shipments",
-                                num2: "18",
-                                txt2: "Arrived Shipments"),
-                            SizedBox(height: _mediaQuery.size.height * 0.010),
-                            const CustomRow(
-                                num1: "55",
-                                txt1: "Booked Shipments",
-                                num2: "5",
-                                txt2: "In-Transit Shipments"),
-                            SizedBox(height: _mediaQuery.size.height * 0.010),
-                            const CustomRow(
-                                num1: "23",
-                                txt1: "Shipments Ready",
-                                num2: "8",
-                                txt2: " Delivered Shipments"),
+                            const Text(
+                              "Dashboard",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            PopupMenuButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: ColorSelect().splashcolor,
+                                ),
+                                child: Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  color: ColorSelect().whitecolor,
+                                ),
+                              ),
+                              itemBuilder: (BuildContext bc) {
+                                return [
+                                  const PopupMenuItem(
+                                      child: Text(
+                                    "Today",
+                                    style: TextStyle(fontSize: 16),
+                                  )),
+                                  const PopupMenuItem(
+                                      child: Text(
+                                    "Yesterday",
+                                    style: TextStyle(fontSize: 16),
+                                  )),
+                                  const PopupMenuItem(
+                                      child: Text("Last 7 Days")),
+                                  const PopupMenuItem(
+                                      child: Text("Last 30 Days")),
+                                  const PopupMenuItem(
+                                      child: Text("This Month")),
+                                  const PopupMenuItem(
+                                      child: Text("Last Month")),
+                                  const PopupMenuItem(
+                                      child: Text("Custom Range")),
+                                ];
+                              },
+                            ),
                           ],
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 44),
-                          child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "For Pickup",
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20, top: 10),
-                          child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "0 / 0 ( 0.00% ) ",
-                                style: TextStyle(
-                                    color: ColorSelect().text2, fontSize: 16),
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20, top: 4),
-                          child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "Return - Delivered / Total",
-                                style: TextStyle(
-                                    fontSize: 13, color: ColorSelect().text2),
-                              )),
-                        ),
-                      ],
-                    ),
+                      ),
+
+                      // circular char
+
+                      Container(
+                        height: _mediaQuery.size.height * 0.40,
+                        child: SfCircularChart(
+
+                            //  title: ChartTitle(text: 'Sales by sales person'),
+                            //  legend: Legend(isVisible: true),
+                            series: <DoughnutSeries<_PieData, String>>[
+                              DoughnutSeries<_PieData, String>(
+                                  explode: true,
+                                  explodeIndex: 0,
+                                  dataSource: chartData,
+                                  xValueMapper: (_PieData data, _) => data.x,
+                                  yValueMapper: (_PieData data, _) => data.y,
+                                  innerRadius: '68%',
+                                  pointColorMapper: (_PieData data, _) =>
+                                      data.color,
+                                  //  dataLabelMapper: (_PieData data, _) => data.color,
+                                  dataLabelSettings:
+                                      const DataLabelSettings(isVisible: true)),
+                            ]),
+                      ),
+                      Column(
+                        children: [
+                          // SizedBox(height: 80),
+                          const CustomRow(
+                              num1: "31",
+                              txt1: "Accepted Shipments",
+                              num2: "18",
+                              txt2: "Arrived Shipments"),
+                          SizedBox(height: _mediaQuery.size.height * 0.010),
+                          const CustomRow(
+                              num1: "55",
+                              txt1: "Booked Shipments",
+                              num2: "5",
+                              txt2: "In-Transit Shipments"),
+                          SizedBox(height: _mediaQuery.size.height * 0.010),
+                          const CustomRow(
+                              num1: "23",
+                              txt1: "Shipments Ready",
+                              num2: "8",
+                              txt2: " Delivered Shipments"),
+                        ],
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 44),
+                        child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "For Pickup",
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 10),
+                        child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "0 / 0 ( 0.00% ) ",
+                              style: TextStyle(
+                                  color: ColorSelect().text2, fontSize: 16),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 4),
+                        child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "Return - Delivered / Total",
+                              style: TextStyle(
+                                  fontSize: 13, color: ColorSelect().text2),
+                            )),
+                      ),
+                    ],
                   ),
                 ),
               ),

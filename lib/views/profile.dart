@@ -20,7 +20,9 @@ class _profileviewState extends State<profileview> {
   Widget build(BuildContext context) {
     var _mediaQuery = MediaQuery.of(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: customappbar(context),
+      drawer: CustomDrawer(context),
       body: ListView(
         children: [
           SizedBox(

@@ -28,8 +28,9 @@ class _supportviewState extends State<supportview> {
   Widget build(BuildContext context) {
     var _mediaQuery = MediaQuery.of(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: customappbar(context),
-      drawer: const Drawer(),
+      drawer: CustomDrawer(context),
       body: ListView(
         children: [
           InkWell(
