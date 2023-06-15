@@ -26,7 +26,7 @@ class _deliveries_viewState extends State<deliveries_view> {
     var _mediaQuery = MediaQuery.of(context);
     return Scaffold(
       appBar: customappbar(context),
-      drawer: const Drawer(),
+      drawer: CustomDrawer(context),
       body: ListView(
         children: [
           InkWell(

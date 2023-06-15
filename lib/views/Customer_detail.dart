@@ -26,7 +26,7 @@ class _customer_detailviewState extends State<customer_detailview> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: customappbar(context),
-      drawer: const Drawer(),
+      drawer: CustomDrawer(context),
       body: ListView(
         children: [
           Container(

@@ -41,6 +41,21 @@ class _tryviewState extends State<tryview> {
           ),
         ],
       ),
+      body: Column(
+        children: [
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(20),
+              ),
+              child: Icon(Icons.location_disabled_outlined),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
