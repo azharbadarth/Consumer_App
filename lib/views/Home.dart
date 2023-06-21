@@ -26,6 +26,15 @@ class _homeviewState extends State<homeview> {
   bool check = false;
   int x = 0;
   String condition1 = "";
+
+  String title = "Custom Range";
+  String date = "Today";
+  String date2 = "Yesterday";
+  String date3 = "Last 7 Days";
+  String date4 = "Last 30 Days";
+  String date5 = "This Month";
+  String date6 = "Last Month";
+
   @override
   Widget build(BuildContext context) {
     List<_PieData> chartData = [
@@ -44,7 +53,7 @@ class _homeviewState extends State<homeview> {
         // drawer
         drawer: CustomDrawer(context),
         body: Container(
-          height: MediaQuery.of(context).size.height * 0.77,
+          height: MediaQuery.of(context).size.height * 0.79,
           child: ListView(
             children: [
               SizedBox(
@@ -93,8 +102,6 @@ class _homeviewState extends State<homeview> {
                       borderRadius: BorderRadius.circular(10)),
                   child: Row(
                     children: [
-                      // Text("Last Statement for the period\nof 04-Feb to 04-Feb"),
-
                       Padding(
                         padding: const EdgeInsets.only(left: 14),
                         child: Text.rich(TextSpan(
@@ -147,45 +154,60 @@ class _homeviewState extends State<homeview> {
                               "Dashboard",
                               style: TextStyle(fontSize: 18),
                             ),
-                            PopupMenuButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Container(
-                                height: 30,
-                                width: 30,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  color: ColorSelect().splashcolor,
+                            Row(
+                              children: [
+                                Text(title),
+                                SizedBox(
+                                  width: _mediaQuery.size.width * 0.020,
                                 ),
-                                child: Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  color: ColorSelect().whitecolor,
-                                ),
-                              ),
-                              itemBuilder: (BuildContext bc) {
-                                return [
-                                  const PopupMenuItem(
-                                      child: Text(
-                                    "Today",
-                                    style: TextStyle(fontSize: 16),
-                                  )),
-                                  const PopupMenuItem(
-                                      child: Text(
-                                    "Yesterday",
-                                    style: TextStyle(fontSize: 16),
-                                  )),
-                                  const PopupMenuItem(
-                                      child: Text("Last 7 Days")),
-                                  const PopupMenuItem(
-                                      child: Text("Last 30 Days")),
-                                  const PopupMenuItem(
-                                      child: Text("This Month")),
-                                  const PopupMenuItem(
-                                      child: Text("Last Month")),
-                                  const PopupMenuItem(
-                                      child: Text("Custom Range")),
-                                ];
-                              },
+                                PopupMenuButton(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: Container(
+                                      height: 30,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: ColorSelect().splashcolor,
+                                      ),
+                                      child: Icon(
+                                        Icons.keyboard_arrow_down_rounded,
+                                        color: ColorSelect().whitecolor,
+                                      ),
+                                    ),
+                                    itemBuilder: (context) => [
+                                          PopupMenuItem(
+                                            child: Text(date),
+                                            value: date,
+                                          ),
+                                          PopupMenuItem(
+                                            child: Text(date2),
+                                            value: date2,
+                                          ),
+                                          PopupMenuItem(
+                                            child: Text(date3),
+                                            value: date3,
+                                          ),
+                                          PopupMenuItem(
+                                            child: Text(date4),
+                                            value: date4,
+                                          ),
+                                          PopupMenuItem(
+                                            child: Text(date5),
+                                            value: date5,
+                                          ),
+                                          PopupMenuItem(
+                                            child: Text(date6),
+                                            value: date6,
+                                          ),
+                                        ],
+                                    onSelected: (String newValue) {
+                                      setState(() {
+                                        title = newValue;
+                                      });
+                                    }),
+                              ],
                             ),
                           ],
                         ),

@@ -26,7 +26,8 @@ class _pickupviewsState extends State<pickupviews> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: customappbar(context),
-      drawer: const Drawer(),
+      // drawer
+      drawer: CustomDrawer(context),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

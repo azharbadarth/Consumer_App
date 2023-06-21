@@ -1,4 +1,5 @@
 import 'package:consumerpro/views/Customer_detail.dart';
+import 'package:consumerpro/views/Replacement.dart';
 import 'package:flutter/material.dart';
 import 'package:consumerpro/properties/colors.dart';
 import 'package:consumerpro/properties/Customwidget.dart';
@@ -10,12 +11,8 @@ import 'package:consumerpro/views/Shipmintview.dart';
 import 'package:consumerpro/views/Googlemap.dart';
 import 'package:consumerpro/views/profile.dart';
 import 'package:consumerpro/views/Return_request.dart';
-import 'package:consumerpro/views/check.dart';
 import 'package:consumerpro/views/scanner.dart';
 import 'package:consumerpro/views/share.dart';
-import 'package:consumerpro/views/try.dart';
-import 'package:consumerpro/views/dragcheck.dart';
-import 'package:consumerpro/views/drag.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,9 +23,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: customercheck(),
+      home: profileview(),
     );
   }
 }

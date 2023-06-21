@@ -112,7 +112,7 @@ class _profileviewState extends State<profileview> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomTextField(
-                  hinttext: "Shahrae faisal", Color: ColorSelect().text5),
+                  hinttext: "Shahrah-e-Faisal", Color: ColorSelect().text5),
             ),
           ),
           const Padding(
@@ -148,6 +148,66 @@ class _profileviewState extends State<profileview> {
                   Color: ColorSelect().text5),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+            child: Text(
+              "NTN",
+              style: TextStyle(fontSize: 14),
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.070,
+            width: MediaQuery.of(context).size.width * 0.80,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomTextField(
+                  hinttext:
+                      "Please contact  Customer Services to update your NTN.",
+                  Color: ColorSelect().text5),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+            child: Text(
+              "CNIC",
+              style: TextStyle(fontSize: 14),
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.070,
+            width: MediaQuery.of(context).size.width * 0.80,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomTextField(
+                  hinttext:
+                      "Please contact  Customer Services to update your CNIC.",
+                  Color: ColorSelect().text5),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+            child: Text(
+              "Password",
+              style: TextStyle(fontSize: 14),
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.070,
+            width: MediaQuery.of(context).size.width * 0.80,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomTextField(
+                  hinttext: "password", Color: ColorSelect().text5),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Text(
+              "Changing your portal password will require you to use the new password for APIs as well. Make sure your development team are aware of this change if you are consuming blueEX APIs.",
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontSize: 16, color: ColorSelect().text2),
+            ),
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -157,7 +217,7 @@ class _profileviewState extends State<profileview> {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => homeview(),
+                builder: (context) => const homeview(),
               ));
         },
         child: Image.asset("assets/home_icon.png"),
@@ -168,21 +228,21 @@ class _profileviewState extends State<profileview> {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => customer_detailview(),
+                builder: (context) => const customer_detailview(),
               ));
         },
         onTap2: () {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => shipment_view(),
+                builder: (context) => const shipment_view(),
               ));
         },
         onTap3: () {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => googleview(),
+                builder: (context) => const googleview(),
               ));
         },
         onTap4: () {

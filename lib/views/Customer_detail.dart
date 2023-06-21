@@ -6,6 +6,7 @@ import 'package:consumerpro/views/Shipmintview.dart';
 import 'package:consumerpro/views/Supportview.dart';
 import 'package:consumerpro/views/Googlemap.dart';
 import 'package:consumerpro/views/scanner.dart';
+import 'package:consumerpro/views/Customer_detail.dart';
 
 class customer_detailview extends StatefulWidget {
   const customer_detailview({super.key});
@@ -19,6 +20,27 @@ class _customer_detailviewState extends State<customer_detailview> {
   bool? ischecked2 = false;
   bool? ischecked3 = false;
   bool? ischecked4 = false;
+  bool? ischecked5 = false;
+  bool? ischecked6 = false;
+
+  String title = "pickup Loaction";
+  String Location1 = "Nazimabad";
+  String Location2 = "Gulshan Iqbal";
+  String Loaction3 = "Saddar";
+  String Loaction4 = "Tariq road";
+
+  String title2 = "Destination Country";
+  String Country = "Pakistan";
+
+  String title3 = "City";
+  String City = "Karachi";
+
+  String title4 = "Services";
+  String Service = "Blue Edge";
+
+  // TextEditingController
+
+  TextEditingController email = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +49,7 @@ class _customer_detailviewState extends State<customer_detailview> {
       resizeToAvoidBottomInset: false,
       appBar: customappbar(context),
       drawer: CustomDrawer(context),
-      body: ListView(
+      body: Stack(
         children: [
           Container(
             height: 600,
@@ -39,7 +61,7 @@ class _customer_detailviewState extends State<customer_detailview> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => homeview(),
+                          builder: (context) => const homeview(),
                         ));
                   },
                   child: Padding(
@@ -47,8 +69,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                     child: customarrow(txt: "Create Replacement Shipment"),
                   ),
                 ),
-                const SizedBox(
-                  height: 28,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.028,
                 ),
 
                 Padding(
@@ -67,8 +89,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                                 color: ColorSelect().text2, fontSize: 16))
                       ])),
                 ),
-                const SizedBox(
-                  height: 23,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.023,
                 ),
 
                 const Padding(
@@ -78,8 +100,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                     style: TextStyle(fontSize: 19),
                   ),
                 ),
-                const SizedBox(
-                  height: 17,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.017,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -90,8 +112,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                         hinttext: "Full Name", Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -102,8 +124,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                         hinttext: "Address", Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -114,8 +136,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                         hinttext: "Email", Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -126,53 +148,128 @@ class _customer_detailviewState extends State<customer_detailview> {
                         hinttext: "Phone", Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
+
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
                   width: MediaQuery.of(context).size.width * 0.80,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                        hinttext: "Country",
-                        suffix: Icon(Icons.keyboard_arrow_down,
-                            color: ColorSelect().text5),
-                        Color: ColorSelect().text5),
+                    child: TextFormField(
+                      // obscureText: obtext,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: ColorSelect().bordercolor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: title2,
+                        hintStyle:
+                            TextStyle(fontSize: 14, color: ColorSelect().text5),
+                        filled: true,
+                        fillColor: ColorSelect().fieldcolor,
+                        suffix: PopupMenuButton(
+                            child: const Icon(Icons.keyboard_arrow_down),
+                            itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                    child: Text(Country),
+                                    value: Country,
+                                  ),
+                                ],
+                            onSelected: (String newValue) {
+                              setState(() {
+                                title2 = newValue;
+                              });
+                            }),
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
+
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
                   width: MediaQuery.of(context).size.width * 0.80,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                        hinttext: "City",
-                        suffix: Icon(Icons.keyboard_arrow_down,
-                            color: ColorSelect().text5),
-                        Color: ColorSelect().text5),
+                    child: TextFormField(
+                      // obscureText: obtext,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: ColorSelect().bordercolor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: title3,
+                        hintStyle:
+                            TextStyle(fontSize: 14, color: ColorSelect().text5),
+                        filled: true,
+                        fillColor: ColorSelect().fieldcolor,
+                        suffix: PopupMenuButton(
+                            child: const Icon(Icons.keyboard_arrow_down),
+                            itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                    child: Text(City),
+                                    value: City,
+                                  ),
+                                ],
+                            onSelected: (String newValue) {
+                              setState(() {
+                                title3 = newValue;
+                              });
+                            }),
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
+
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
                   width: MediaQuery.of(context).size.width * 0.80,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                        hinttext: "Service",
-                        suffix: Icon(Icons.keyboard_arrow_down,
-                            color: ColorSelect().text5),
-                        Color: ColorSelect().text5),
+                    child: TextFormField(
+                      // obscureText: obtext,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: ColorSelect().bordercolor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: title4,
+                        hintStyle:
+                            TextStyle(fontSize: 14, color: ColorSelect().text5),
+                        filled: true,
+                        fillColor: ColorSelect().fieldcolor,
+                        suffix: PopupMenuButton(
+                            child: const Icon(Icons.keyboard_arrow_down),
+                            itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                    child: Text(Service),
+                                    value: Service,
+                                  ),
+                                ],
+                            onSelected: (String newValue) {
+                              setState(() {
+                                title4 = newValue;
+                              });
+                            }),
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 34,
+
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.034,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 20),
@@ -181,42 +278,60 @@ class _customer_detailviewState extends State<customer_detailview> {
                     style: TextStyle(fontSize: 19),
                   ),
                 ),
-                const SizedBox(
-                  height: 17,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.017,
                 ),
+
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
                   width: MediaQuery.of(context).size.width * 0.80,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                        hinttext: "City",
-                        suffix: const Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Color(0xff989B9F),
+                    child: TextFormField(
+                      // obscureText: obtext,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: ColorSelect().bordercolor),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        Color: ColorSelect().text5),
+                        hintText: title,
+                        hintStyle:
+                            TextStyle(fontSize: 14, color: ColorSelect().text5),
+                        filled: true,
+                        fillColor: ColorSelect().fieldcolor,
+                        suffix: PopupMenuButton(
+                            child: const Icon(Icons.keyboard_arrow_down),
+                            itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                    child: Text(Location1),
+                                    value: Location1,
+                                  ),
+                                  PopupMenuItem(
+                                    child: Text(Location2),
+                                    value: Location2,
+                                  ),
+                                  PopupMenuItem(
+                                    child: Text(Loaction3),
+                                    value: Loaction3,
+                                  ),
+                                  PopupMenuItem(
+                                    child: Text(Loaction4),
+                                    value: Loaction3,
+                                  ),
+                                ],
+                            onSelected: (String newValue) {
+                              setState(() {
+                                title = newValue;
+                              });
+                            }),
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.070,
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                        hinttext: "Pickup Location",
-                        suffix: const Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Color(0xff989B9F),
-                        ),
-                        Color: ColorSelect().text5),
-                  ),
-                ),
-                const SizedBox(
-                  height: 7,
+
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.007,
                 ),
 
                 // dialogue box
@@ -230,7 +345,6 @@ class _customer_detailviewState extends State<customer_detailview> {
                           style: TextStyle(
                               color: ColorSelect().splashcolor, fontSize: 18),
                         ),
-
                         onPressed: () {
                           showDialog(
                             context: context,
@@ -265,8 +379,9 @@ class _customer_detailviewState extends State<customer_detailview> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        const SizedBox(
-                                          height: 10,
+                                        SizedBox(
+                                          height:
+                                              _mediaQuery.size.height * 0.010,
                                         ),
                                         Container(
                                           height: MediaQuery.of(context)
@@ -284,8 +399,9 @@ class _customer_detailviewState extends State<customer_detailview> {
                                                   color: ColorSelect().text5),
                                               Color: ColorSelect().text5),
                                         ),
-                                        const SizedBox(
-                                          height: 10,
+                                        SizedBox(
+                                          height:
+                                              _mediaQuery.size.height * 0.010,
                                         ),
                                         Container(
                                           height: MediaQuery.of(context)
@@ -304,8 +420,9 @@ class _customer_detailviewState extends State<customer_detailview> {
                                                   color: ColorSelect().text5),
                                               Color: ColorSelect().text5),
                                         ),
-                                        const SizedBox(
-                                          height: 10,
+                                        SizedBox(
+                                          height:
+                                              _mediaQuery.size.height * 0.010,
                                         ),
                                         Container(
                                           height: MediaQuery.of(context)
@@ -323,8 +440,9 @@ class _customer_detailviewState extends State<customer_detailview> {
                                                   color: ColorSelect().text5),
                                               Color: ColorSelect().text5),
                                         ),
-                                        const SizedBox(
-                                          height: 10,
+                                        SizedBox(
+                                          height:
+                                              _mediaQuery.size.height * 0.010,
                                         ),
                                         Container(
                                           height: MediaQuery.of(context)
@@ -343,8 +461,9 @@ class _customer_detailviewState extends State<customer_detailview> {
                                                   color: ColorSelect().text5),
                                               Color: ColorSelect().text5),
                                         ),
-                                        const SizedBox(
-                                          height: 10,
+                                        SizedBox(
+                                          height:
+                                              _mediaQuery.size.height * 0.010,
                                         ),
                                         Container(
                                           height: MediaQuery.of(context)
@@ -363,8 +482,9 @@ class _customer_detailviewState extends State<customer_detailview> {
                                                   color: ColorSelect().text5),
                                               Color: ColorSelect().text5),
                                         ),
-                                        const SizedBox(
-                                          height: 10,
+                                        SizedBox(
+                                          height:
+                                              _mediaQuery.size.height * 0.010,
                                         ),
                                         Container(
                                           height: MediaQuery.of(context)
@@ -391,50 +511,13 @@ class _customer_detailviewState extends State<customer_detailview> {
                             },
                           );
                         },
-
-                        // check
                       ),
                     )),
-                const SizedBox(
-                  height: 20,
+
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.020,
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.070,
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                        hinttext: "Shipper Name", Color: ColorSelect().text5),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.070,
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                        hinttext: "Shipper Email", Color: ColorSelect().text5),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.070,
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                        hinttext: "Shipper Contact",
-                        Color: ColorSelect().text5),
-                  ),
-                ),
-                const SizedBox(
-                  height: 37,
-                ),
+
                 const Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
@@ -442,8 +525,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                     style: TextStyle(fontSize: 19),
                   ),
                 ),
-                const SizedBox(
-                  height: 17,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.017,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -454,8 +537,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                         hinttext: "Product Name", Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -466,8 +549,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                         hinttext: "Pieces", Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -478,8 +561,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                         hinttext: "Weight (KG)", Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 8,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.008,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -497,8 +580,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                                 color: ColorSelect().text2, fontSize: 16))
                       ])),
                 ),
-                const SizedBox(
-                  height: 19,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.019,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -509,8 +592,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                         hinttext: "Product Ref", Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -522,8 +605,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                         Color: ColorSelect().text5),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.070,
@@ -535,8 +618,8 @@ class _customer_detailviewState extends State<customer_detailview> {
                   ),
                 ),
 
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: _mediaQuery.size.height * 0.010,
                 ),
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -557,116 +640,204 @@ class _customer_detailviewState extends State<customer_detailview> {
               ],
             ),
           ),
-          Container(
-            height: 109,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20),
-                topLeft: Radius.circular(20),
-              ),
-              color: Color(0xffFFFFFF),
-            ),
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 16,
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Shipment Options",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Icon(Icons.keyboard_arrow_down, color: Color(0xff989B9F)),
-                    ],
+          DraggableScrollableSheet(
+            initialChildSize: 0.1, // Adjust this to set initial height
+            minChildSize: 0.1, // Adjust this to set minimum height
+            maxChildSize: 1.0, // Adjust this to set maximum height
+            builder: (BuildContext context, ScrollController scrollController) {
+              return Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
+                  color: Colors.white,
                 ),
-
-                const SizedBox(
-                  height: 12,
+                child: ListView(
+                  controller: scrollController,
+                  children: <Widget>[
+                    ListTile(
+                        title: const Text(
+                          "Shipment Options",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        trailing: PopupMenuButton(
+                          child: const Icon(Icons.keyboard_arrow_down_outlined),
+                          itemBuilder: (BuildContext bc) {
+                            return [
+                              const PopupMenuItem(
+                                  child: Text(
+                                "Blue Edge",
+                                style: TextStyle(fontSize: 16),
+                              )),
+                            ];
+                          },
+                        )),
+                    SizedBox(
+                      height: _mediaQuery.size.height * 0.010,
+                    ),
+                    // checkbox
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(
+                                  value: ischecked1,
+                                  onChanged: (newBool) {
+                                    setState(() {
+                                      ischecked1 = newBool;
+                                      ischecked2 = false;
+                                      ischecked3 = false;
+                                      ischecked4 = false;
+                                      ischecked5 = false;
+                                    });
+                                  }),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              const Text(
+                                "Fragile",
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 13),
+                              ),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              Checkbox(
+                                  value: ischecked2,
+                                  onChanged: (newBool) {
+                                    setState(() {
+                                      ischecked2 = newBool;
+                                      ischecked1 = false;
+                                      ischecked3 = false;
+                                      ischecked4 = false;
+                                      ischecked5 = false;
+                                    });
+                                  }),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              const Text(
+                                "Insurance",
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 13),
+                              ),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              Checkbox(
+                                  value: ischecked3,
+                                  onChanged: (newBool) {
+                                    setState(() {
+                                      ischecked3 = newBool;
+                                      ischecked1 = false;
+                                      ischecked2 = false;
+                                      ischecked4 = false;
+                                      ischecked5 = false;
+                                    });
+                                  }),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              const Text(
+                                "COD",
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 13),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: _mediaQuery.size.height * 0.008,
+                          ),
+                          Row(
+                            children: [
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              Checkbox(
+                                  value: ischecked4,
+                                  onChanged: (newBool) {
+                                    setState(() {
+                                      ischecked4 = newBool;
+                                      ischecked1 = false;
+                                      ischecked2 = false;
+                                      ischecked3 = false;
+                                      ischecked5 = false;
+                                    });
+                                  }),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              const Text(
+                                "Document",
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 13),
+                              ),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              Checkbox(
+                                  value: ischecked5,
+                                  onChanged: (newBool) {
+                                    setState(() {
+                                      ischecked5 = newBool;
+                                      ischecked1 = false;
+                                      ischecked2 = false;
+                                      ischecked3 = false;
+                                      ischecked4 = false;
+                                    });
+                                  }),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              const Text(
+                                "Parcel",
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 13),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: _mediaQuery.size.height * 0.010,
+                          ),
+                          Divider(
+                            thickness: 1,
+                            color: ColorSelect().text5,
+                          ),
+                          SizedBox(
+                            height: _mediaQuery.size.height * 0.010,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                "Cash Collection",
+                                style: TextStyle(
+                                    fontSize: 13, color: Color(0xff000000)),
+                              ),
+                              Checkbox(
+                                  value: ischecked6,
+                                  onChanged: (newBool) {
+                                    setState(() {
+                                      ischecked6 = newBool;
+                                      ischecked1 = false;
+                                      ischecked2 = false;
+                                      ischecked3 = false;
+                                      ischecked4 = false;
+                                      ischecked5 = false;
+                                    });
+                                  }),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                // checks widget
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Row(
-                    children: [
-                      Checkbox(
-                          value: ischecked1,
-                          onChanged: (newBool) {
-                            setState(() {
-                              ischecked1 = newBool;
-                            });
-                          }),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      const Text(
-                        "Percel",
-                        style:
-                            TextStyle(color: Color(0xff989B9F), fontSize: 13),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Checkbox(
-                          value: ischecked2,
-                          onChanged: (newBool) {
-                            setState(() {
-                              ischecked2 = newBool;
-                            });
-                          }),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      const Text(
-                        "Fragile",
-                        style:
-                            TextStyle(color: Color(0xff989B9F), fontSize: 13),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Checkbox(
-                          value: ischecked3,
-                          onChanged: (newBool) {
-                            setState(() {
-                              ischecked3 = newBool;
-                            });
-                          }),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      const Text(
-                        "Insurance",
-                        style:
-                            TextStyle(color: Color(0xff989B9F), fontSize: 13),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Checkbox(
-                          value: ischecked4,
-                          onChanged: (newBool) {
-                            setState(() {
-                              ischecked4 = newBool;
-                            });
-                          }),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      const Text(
-                        "COD",
-                        style:
-                            TextStyle(color: Color(0xff989B9F), fontSize: 13),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              );
+            },
           ),
         ],
       ),
@@ -688,28 +859,28 @@ class _customer_detailviewState extends State<customer_detailview> {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => customer_detailview(),
+                  builder: (context) => const customer_detailview(),
                 ));
           },
           onTap2: () {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => shipment_view(),
+                  builder: (context) => const shipment_view(),
                 ));
           },
           onTap3: () {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => googleview(),
+                  builder: (context) => const googleview(),
                 ));
           },
           onTap4: () {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => supportview(),
+                  builder: (context) => const supportview(),
                 ));
           },
           condition1: 'create'),

@@ -16,6 +16,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:consumerapp/views/PickupView.dart';
 
 // custom appbar
+String title = "pickup Loaction";
+String Location1 = "Nazimabad";
+String Location2 = "Gulshan Iqbal";
+String Loaction3 = "Saddar";
+String Loaction4 = "Tariq road";
 
 customappbar(context) {
   return AppBar(
@@ -78,6 +83,7 @@ CustomTextField({
   Color,
 }) {
   return TextFormField(
+    controller: TextEditingController(),
     obscureText: obtext,
     decoration: InputDecoration(
       border: OutlineInputBorder(
@@ -306,11 +312,11 @@ List<custommodel> list = [
   custommodel(
       img: "assets/ship_img3.png",
       txt: "Track Shipment",
-      onTap: track_shipment()),
+      onTap: const track_shipment()),
   custommodel(
       img: "assets/ship_img4.png",
       txt: "Return Request",
-      onTap: return_request_views()),
+      onTap: const return_request_views()),
   custommodel(
       img: "assets/ship_img5.png", txt: "Pickups", onTap: pickupviews()),
 ];
@@ -631,3 +637,44 @@ CustomDrawer(context) {
     ),
   );
 }
+
+
+// customer view
+
+// customtextfield2(
+//     {title, Location1, Location2, Location3, Location4, setstate}) {
+//   return TextFormField(
+//     // obscureText: obtext,
+//     decoration: InputDecoration(
+//         border: OutlineInputBorder(
+//           borderSide: BorderSide(color: ColorSelect().bordercolor),
+//           borderRadius: BorderRadius.circular(10),
+//         ),
+//         hintText: title,
+//         hintStyle: TextStyle(fontSize: 14, color: ColorSelect().text5),
+//         filled: true,
+//         fillColor: ColorSelect().fieldcolor,
+//         suffix: PopupMenuButton(
+//           child: const Icon(Icons.keyboard_arrow_down),
+//           itemBuilder: (context) => [
+//             PopupMenuItem(
+//               child: Text(Location1),
+//               value: Location1,
+//             ),
+//             PopupMenuItem(
+//               child: Text(Location2),
+//               value: Location2,
+//             ),
+//             PopupMenuItem(
+//               child: Text(Loaction3),
+//               value: Loaction3,
+//             ),
+//             PopupMenuItem(
+//               child: Text(Loaction4),
+//               value: Loaction3,
+//             ),
+//           ],
+//           onSelected: setstate,
+//         )),
+//   );
+// }

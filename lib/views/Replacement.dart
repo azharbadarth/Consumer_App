@@ -31,7 +31,7 @@ class _replace_viewState extends State<replace_view> {
               Navigator.pop(context);
             },
             child: Padding(
-              padding: EdgeInsets.only(top: 30, left: 20),
+              padding: const EdgeInsets.only(top: 30, left: 20),
               child: customarrow(txt: "Replacement"),
             ),
           ),

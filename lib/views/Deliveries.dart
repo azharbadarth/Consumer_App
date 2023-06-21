@@ -41,7 +41,6 @@ class _deliveries_viewState extends State<deliveries_view> {
           const SizedBox(
             height: 20,
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Container(
@@ -118,11 +117,9 @@ class _deliveries_viewState extends State<deliveries_view> {
               ),
             ),
           ),
-
           const SizedBox(
             height: 20,
           ),
-
           const Padding(
             padding: EdgeInsets.only(left: 20),
             child: Text(
@@ -133,7 +130,6 @@ class _deliveries_viewState extends State<deliveries_view> {
           const SizedBox(
             height: 11,
           ),
-
           customborder(txt1: "CN# 5018288897", date: "7 April 2022"),
           const SizedBox(
             height: 10,
@@ -143,35 +139,6 @@ class _deliveries_viewState extends State<deliveries_view> {
             height: 10,
           ),
           customborder(txt1: "CN# 5018288897", date: "7 April 2022"),
-          const SizedBox(
-            height: 10,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          customborder(txt1: "CN# 5018288897", date: "7 April 2022"),
-          const SizedBox(
-            height: 10,
-          ),
-          customborder(txt1: "CN# 5018288897", date: "7 April 2022"),
-          const SizedBox(
-            height: 10,
-          ),
-          customborder(txt1: "CN# 5018288897", date: "7 April 2022"),
-          const SizedBox(
-            height: 10,
-          ),
-          customborder(txt1: "CN# 5018288897", date: "7 April 2022"),
-          const SizedBox(
-            height: 10,
-          ),
-          customborder(txt1: "CN# 5018288897", date: "7 April 2022"),
-          const SizedBox(
-            height: 10,
-          ),
-          customborder(txt1: "CN# 5018288897", date: "7 April 2022"),
-          // const SizedBox(height: 10,),
-          // customborder(txt1: "CN# 5018288897",date: "7 April 2022",size: 16),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
