@@ -13,8 +13,8 @@ class loginview extends StatefulWidget {
 }
 
 class _loginviewState extends State<loginview> {
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController email_controller = TextEditingController();
+  TextEditingController password_controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +45,7 @@ class _loginviewState extends State<loginview> {
             height: MediaQuery.of(context).size.height * 0.070,
             width: MediaQuery.of(context).size.width * 0.8,
             child: CustomTextField(
+              Controller: email_controller,
               obtext: false,
               hinttext: 'Email',
             ),
@@ -56,9 +57,10 @@ class _loginviewState extends State<loginview> {
             height: MediaQuery.of(context).size.height * 0.070,
             width: MediaQuery.of(context).size.width * 0.8,
             child: CustomTextField(
+                Controller: password_controller,
                 obtext: false,
                 hinttext: 'Password',
-                suffix: Icon(Icons.remove_red_eye)),
+                suffix: const Icon(Icons.remove_red_eye)),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
@@ -84,11 +86,17 @@ class _loginviewState extends State<loginview> {
                 txt: "Log in",
                 bgcolor: ColorSelect().splashcolor,
                 onPressed: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const homeview(),
-                      ));
+                  String email = email_controller.text;
+                  String Password = password_controller.text;
+                  if (email == "azhar@123" && Password == "123") {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const homeview(),
+                        ));
+                  } else {
+                    print("Please enter valid email and password");
+                  }
                 }),
           )
         ],

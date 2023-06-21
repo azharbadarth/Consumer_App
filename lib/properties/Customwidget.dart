@@ -81,9 +81,10 @@ CustomTextField({
   hinttext,
   suffix,
   Color,
+  Controller,
 }) {
   return TextFormField(
-    controller: TextEditingController(),
+    controller: Controller,
     obscureText: obtext,
     decoration: InputDecoration(
       border: OutlineInputBorder(
